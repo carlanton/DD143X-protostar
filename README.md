@@ -1,9 +1,8 @@
 #Protostar - Online Social Karaoke
-
-Detta är ett projekt gjort i kurserna DD1365 Mjukvarukonstruktion och DD143X
-Examensarbete inom datalogi på KTH.
-
-Gruppen bestod av:
+ 
+This is a combined project for the courses _DD1365 Software Engineering_ and _DD143X Degree Project in Computer Science, First Level_ at The Royal Institute of Technology (KTH) in Stockholm, Sweden.
+ 
+The group members were:
 ```
 Andreas Gustavsson
 Andreas Sjöberg
@@ -20,7 +19,7 @@ Theodor Twetman
 Viktor Collin
 Yuri Stange 
 ```
-
-För att få igång kalaset, kör ```$ mvn jetty:run```. Med lite tur så ska allt fungera och vara nåbart på http://localhost:8080
-
-Stödet för Facebook har inaktiverats i denna version!
+ 
+To get the party started: ```$ mvn jetty:run```. With some luck everything should work, and can be accessed by browsing to http://localhost:8080/
+ 
+The support for Facebook has been deactivated in this version.
