@@ -4,7 +4,7 @@ This is a combined project for the courses _DD1365 Software Engineering_ and _DD
  
 The group members were:
 ```
-Andreas Gustavsson
+Andreas Gabrielsson
 Andreas Sjöberg
 Anton Lindström
 Ashkan Farnian
