@@ -1,0 +1,31 @@
+<div id='fb-root'></div>
+<div class="play wrapper">
+	<div>
+		<a href="#" class="logo logo-small">Online Social Karaoke</a>
+	</div>
+	<div id="main-wrapper">
+		<div id="content">
+			<h1><%= artist %> - <%= title %></h1>
+			<h2>Your score: <%= score %></h2>
+			
+			<p style="text-align:center; color:#fff; margin: 45px auto 0;">
+				Enter your name for high score:<br />
+				<input type="text" id="nickname" style="font-size: 24px; padding: 12px 5px; border-radius: 5px; border: 0; margin: 10px auto 0; text-align:center; width: 300px;" />
+				<button class="button pink glossy" type="submit" id="submit-highscore" style="margin-top:5px;">Submit</button>
+			<div class ="submit_loading"></div>
+			<div class="info">
+				<button class="button pink glossy" id="play-again">Play again!</button>
+				<button class="button orange glossy" id="choose-song">Select new song</button>
+				<button class="button blue glossy" id="facebook">Post on Facebook</button>
+			</div>
+
+				<div id="submitMsg"></div>
+				<div class="info" id="message"></div>
+
+			</p>
+			
+			
+		</div>
+		<div id="backdrop"></div>
+	</div>
+</div>

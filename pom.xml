@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>se.kth.protohype</groupId>
+	<artifactId>protostar</artifactId>
+	<packaging>war</packaging>
+	<version>0.1-SNAPSHOT</version>
+	<name>ProtoStar</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Bort med web security för testerna! -->
+		<jstest.browser>sh ./browser.sh</jstest.browser>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>Mac</id>
+			<activation><os><family>mac</family></os></activation>
+			<properties>
+				<!--jstest.browser>open</jstest.browser-->
+				<!-- Hoppas detta funkar :-) -->
+				<jstest.browser>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security</jstest.browser>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}</directory>
+							<includes>
+								<include>*.db</include>
+								<include>${basedir}/data/audio/*.*</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<!--
+				Jetty webserver
+				
+				$ mvn jetty:run
+			-->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.1.v20120215</version>
+				<configuration>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<loginServices>
+						<loginService implementation="org.eclipse.jetty.security.HashLoginService">
+							<name>ProtoRealm</name>
+							<config>${basedir}/src/etc/realm.properties</config>
+						</loginService>
+					</loginServices>
+					<scanTargets>
+						<scanTarget>target/classes/</scanTarget>
+					</scanTargets>
+					<webAppConfig>
+						<contextPath>/</contextPath>
+						<baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
+							<resourcesAsCSV>src/main/webapp,data</resourcesAsCSV>
+						</baseResource>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+
+			<!--
+				Builds microphone.swf and generates documentation using Adobe Flex 
+				
+				$ mvn exec:exec
+			-->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<executable>mxmlc</executable>
+					<arguments>
+						<argument>src/main/flex/microphone.mxml</argument>
+						<argument>-output</argument>
+						<argument>${basedir}/src/main/webapp/swf/microphone.swf</argument>
+					</arguments>
+					<executable>asdoc</executable>
+					<arguments>
+						<argument>-source-path</argument>
+						<argument>src/main/flex/</argument>
+						<argument>-doc-classes</argument>
+						<argument>microphone</argument>
+						<argument>-output</argument>
+						<argument>${basedir}/target/asdoc</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+
+			<!-- 
+				jsdoctk - Generates jsdoc documentation
+				
+				$ mvn jsdocktk:jsdoc
+			-->
+			<plugin>
+				<groupId>nl.windgazer</groupId>
+				<artifactId>jsdoctk-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<recurse>3</recurse>
+					<srcDir>${basedir}/src/main/webapp/js</srcDir>
+				</configuration>
+			</plugin>
+
+			<!--
+				jsTestDriver - Unit tests for JavaScript
+			
+				$ mvn test
+			-->
+			<plugin>
+				<groupId>com.googlecode.jstd-maven-plugin</groupId>
+				<artifactId>jstd-maven-plugin</artifactId>
+				<version>1.3.2.5</version>
+				<configuration>
+					<port>9876</port>
+					<browser>${jstest.browser}</browser>
+				</configuration>
+				<executions>
+					<execution>
+						<id>run-tests</id>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<!-- Jersey -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>1.12</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.12</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
+			<version>1.12</version>
+		</dependency>
+
+		<!-- SQLite JDBC -->
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.7.2</version>
+		</dependency>
+
+		<!-- File utils -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- jsTestDriver -->
+		<dependency>
+			<groupId>com.googlecode.jstd-maven-plugin</groupId>
+			<artifactId>jstd-maven-plugin</artifactId>
+			<version>1.3.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- GSON, for parsing JSON-strings to objects -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.1</version>
+		</dependency>
+	</dependencies>
+	
+		
+
+	<repositories>
+		<!-- This is Maven's default repository -->
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>jsdoctk1</id>
+			<url>http://jsdoctk-plugin.googlecode.com/svn/repo</url>
+		</repository>
+		<repository>
+			<id>jstd-maven-plugin google code repo</id>
+			<url>http://jstd-maven-plugin.googlecode.com/svn/maven2</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jsdoctk2</id>
+			<url>http://jsdoctk-plugin.googlecode.com/svn/repo</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jstd-maven-plugin google code repo</id>
+			<url>http://jstd-maven-plugin.googlecode.com/svn/maven2</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

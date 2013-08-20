@@ -1,0 +1,42 @@
+<div class="play wrapper">
+	<div>
+		<button class="button orange glossy" id="exit" style="display:none; float: left;  margin: 20px 0 0 20px;">Cancel</button>
+		<button class="button pink glossy" id="replay" style="display:none; float: left; margin:  20px 0 0 20px;">Retry</button>
+		<button class="button blue glossy" id="finish" style="display:none; float: right; margin:  20px 20px 0 0;">OK, I'm done...</button>
+		<a href="#" class="logo logo-small">Online Social Karaoke</a>
+	</div>
+	<div id="main-wrapper">
+		<div id="content">
+			<h1><%= title %></h1>
+			<h2><%= artist %></h2>
+			<div class="info loading">
+				
+			</div>
+		</div>
+
+		
+		<canvas width="940" height="530" style="display:none"></canvas>
+
+		<div id="microphonecontainer">
+			<span class='micinfo'>This game requires microphone access. Press Allow to continue.</span>
+		</div>
+
+		<div id="youtubeplayer"></div>
+		<div id="backdrop"></div>
+
+		<div id="debugSettings">
+			<h3>Debug settings</h3>
+			<table>
+				<tr>
+					<td>TickerGap:</td>
+					<td><input type="text" id="tickerGap" value="0" size="4" /> ms</td>
+				</tr>
+				<tr>
+					<td>Sparkles:</td>
+					<td><input type="checkbox" id="enableSparkles" checked="checked" /></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="notification"></div>
+</div>
