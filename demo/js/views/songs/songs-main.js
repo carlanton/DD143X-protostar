@@ -187,10 +187,10 @@ define([
 			switch (mode){
 				case "edit":
 				case "remove":
-					url = "/admin/" + mode + "/" + songid;
+					url = "admin/" + mode + "/" + songid;
 					break;
 				case "songs":
-					url = "/songs/" + songid;
+					url = "songs/" + songid;
 			}
 			app.router.navigate(url, { trigger: false });
 			this.renderSongDetails(this.songs.get(songid));

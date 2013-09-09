@@ -9,12 +9,12 @@ function ProtoApiCommunicator(errorHandler){
 /**
 	The Base Url for the server
 */
-ProtoApiCommunicator.BASE_URL = "/api/";
+ProtoApiCommunicator.BASE_URL = "api/";
 
 /**
 	The audio base Url for the server
 */
-ProtoApiCommunicator.AUDIO_BASE_URL = "/audio/";
+ProtoApiCommunicator.AUDIO_BASE_URL = "audio/";
 
 /**
 	A string that will be sent to the errorHandler of saveResult if the parameter result isn't a valid gameresult object

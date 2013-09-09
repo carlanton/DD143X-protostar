@@ -22,7 +22,6 @@ define([
 	
 		events: {
 			"click #play":  "playButton",
-			"click #admin": "adminButton",
 			"click #tutorial": "tutorialButton",
 		},
 		
