@@ -1,0 +1,10 @@
+*.un~
+.classpath
+*.swp
+.project
+.settings/
+.DS_Store
+target/
+bin/
+protostar.db
+out/

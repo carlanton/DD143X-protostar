@@ -1,0 +1,27 @@
+<p class="title"><span><%= title %></span></p>
+<p class="artist"><%= artist %></p>
+<div class="buttons">
+	<form id="editForm" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>Audio:</td>
+				<td><input type = "file" name="audio" /></td>
+			</tr>
+			<tr>
+				<td>Udxfil:</td>
+				<td><input type = "file" name="udx" /></td>
+			</tr>
+			<tr>
+				<td>Youtube URL:</td>
+				<td><input type = "text" name="youtubeUrl" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button class="button pink" style="margin-top:5px" type="submit">Update</button></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="message">
+
+</div>

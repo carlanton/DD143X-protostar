@@ -1,0 +1,14 @@
+.view-intro {
+	padding-top: 100px;
+}
+
+.view-intro #logo {
+	width: 317px;
+	height: 96px;
+	margin: 0 auto 30px;
+	background: url(img/logo-big.png) top left no-repeat;
+}
+
+.view-intro .buttons {
+	text-align:center;
+}

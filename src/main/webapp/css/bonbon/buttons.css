@@ -1,0 +1,199 @@
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Exo:400,700,800);
+
+button::-moz-focus-inner {
+  border: 0; }
+
+/* minimal
+*******************************************************************************/
+button.minimal {
+  background: #e3e3e3;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  box-shadow: inset 0 0 1px 1px #f6f6f6;
+  color: #333;
+  font: bold 12px "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1;
+  padding: 8px 0 9px;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  width: 150px; }
+  button.minimal:hover {
+    background: #d9d9d9;
+    -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+    -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
+    box-shadow: inset 0 0 1px 1px #eaeaea;
+    color: #222;
+    cursor: pointer; }
+  button.minimal:active {
+    background: #d0d0d0;
+    -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;
+    -moz-box-shadow: inset 0 0 1px 1px #e3e3e3;
+    box-shadow: inset 0 0 1px 1px #e3e3e3;
+    color: #000; }
+
+
+/* The Button (inspired by thoughtbot.com)
+*******************************************************************************/
+button.button {
+ 
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  color: #fff; /*textcolor*/
+  font: bold 20px "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1;
+  padding: 12px 0 14px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.8);
+  /* width: 150px;*/ }
+
+	/* -------- Hoovering! ----------- */
+  button.button.pink:hover {
+    /*background-color: #f37873;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601)); */
+    background-image: -webkit-linear-gradient(top, #ff75a5 0%, #ff75a5 50%, #ff56aa 50%, #ff56aa 100%);
+    background-image: -moz-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    background-image: -ms-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    background-image: -o-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    background-image: linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    cursor: pointer; }
+
+  button.button.orange:hover {
+    /*background-color: #f37873;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601));*/
+    background-image: -webkit-linear-gradient(top, #efaf34 0%, #efaf34 50%, #f5a13d 50%, #f5a13d 100%);
+    background-image: -moz-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    background-image: -ms-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    background-image: -o-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    background-image: linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+    cursor: pointer; }
+
+  button.button.blue:hover {
+    /*background-color: #f37873;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601));*/
+    background-image: -webkit-linear-gradient(top, #7288f4 0%, #7288f4 50%, #5c76f4 50%, #5c76f4 100%);
+    background-image: -moz-linear-gradient(top, #7288f4 0%, #7288f4 50%, #5c76f4 50%, #5c76f4 100%);
+    background-image: -ms-linear-gradient(top, #7288f4 0%, #7288f4 50%, #5c76f4 50%, #5c76f4 100%);
+    background-image: -o-linear-gradient(top, #7288f4 0%, #7288f4 50%, #5c76f4 50%, #5c76f4 100%);
+    background-image: linear-gradient(top, #7288f4 0%, #7288f4 50%, #5c76f4 50%, #5c76f4 100%);
+    cursor: pointer; 
+}
+
+	/* ---------- Active Buttons ---------- */
+  button.button.pink:active {
+    border: 1px solid #ff6699;
+    /*background-color: #d43c28;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d43c28), color-stop(50%, #ad3224), color-stop(50%, #9c1500), color-stop(100%, #700d00));*/
+    background-image: -webkit-linear-gradient(top, #ff9fc1 0%, #ff9fc1 50%, #ff6699 50%, #ff6699 100%);
+    background-image: -moz-linear-gradient(top, #ff9fc1 0%, #ff9fc1 50%, #ff6699 50%, #ff6699 100%);
+    background-image: -ms-linear-gradient(top, #ff9fc1 0%, #ff9fc1 50%, #ff6699 50%, #ff6699 100%);
+    background-image: -o-linear-gradient(top, #ff9fc1 0%, #ff9fc1 50%, #ff6699 50%, #ff6699 100%);
+    background-image: linear-gradient(top, #ff9fc1 0%, #ff9fc1 50%, #ff6699 50%, #ff6699 100%);
+    /*-webkit-box-shadow: inset 2px 2px 0px 1px rgba(255, 115, 100, 0.4);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);*/ 
+}
+
+  button.button.orange:active {
+    border: 1px solid #f99727;
+    /*background-color: #d43c28;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d43c28), color-stop(50%, #ad3224), color-stop(50%, #9c1500), color-stop(100%, #700d00));*/
+    background-image: -webkit-linear-gradient(top, #f5b05e 0%, #f5b05e 50%, #efa310 50%, #efa310 100%);
+    background-image: -moz-linear-gradient(top, #f5b263 0%, #f5b263 50%, #efa310 50%, #efa310 100%);
+    background-image: -ms-linear-gradient(top, #f5b263 0%, #f5b263 50%, #efa310 50%, #efa310 100%);
+    background-image: -o-linear-gradient(top, #f5b263 0%, #f5b263 50%, #efa310 50%, #efa310 100%);
+    background-image: linear-gradient(top, #f5b263 0%, #f5b263 50%, #efa310 50%, #efa310 100%);
+    /*-webkit-box-shadow: inset 2px 2px 0px 2px rgba(000, 000, 000, 0.4);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(000, 000, 000, 0.4);
+    box-shadow: inset -2px -2px 0px 1px rgba(000, 000, 000, 0.7);*/
+}
+
+  button.button.blue:active {
+    border: 1px solid #3c5bf4;
+    background-color: #d43c28;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d43c28), color-stop(50%, #ad3224), color-stop(50%, #9c1500), color-stop(100%, #700d00));
+    background-image: -webkit-linear-gradient(top, #8598f4 0%, #8598f4 50%, #7187f4 50%, #7187f4 100%);
+    background-image: -moz-linear-gradient(top, #8598f4 0%, #8598f4 50%, #7187f4 50%, #7187f4 100%);
+    background-image: -ms-linear-gradient(top, #8598f4 0%, #8598f4 50%, #7187f4 50%, #7187f4 100%);
+    background-image: -o-linear-gradient(top, #8598f4 0%, #8598f4 50%, #7187f4 50%, #7187f4 100%);
+    background-image: linear-gradient(top, #8598f4 0%, #8598f4 50%, #7187f4 50%, #7187f4 100%);
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(000, 000, 000, 0.4);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(000, 000, 000, 0.4);
+    box-shadow: inset 0px 0px 0px 1px rgba(000, 000, 000, 0.4);
+}
+
+
+/* ------------ Button Colors ------------ */
+
+  button.button.orange {
+	border: 1px solid #f59727;
+	background-image: -webkit-linear-gradient(top, #efa310 0%, #efa310 50%, #f58f15 50%, #f58f15 100%);
+	background-image: -moz-linear-gradient(top, #efa310 0%, #efa310 50%, #f58f15 50%, #f58f15 100%);
+    	background-image: -ms-linear-gradient(top, #efa310 0%, #efa310 50%, #f58f15 50%, #f58f15 100%);
+    	background-image: -o-linear-gradient(top, #efa310 0%, #efa310 50%, #f58f15 50%, #f58f15 100%);
+    	background-image: linear-gradient(top, #efa310 0%, #efa310 50%, #f58f15 50%, #f58f15 100%);
+	background-color: hsl(39, 100%, 50%);
+	
+
+}
+  button.button.pink {
+        /*color:                          hsl(340, 100%, 30%) !important;*/
+	border: 1px solid #ff6699;
+	background-image: -webkit-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+	background-image: -moz-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+        background-image: -ms-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+        background-image: -o-linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+        background-image: linear-gradient(top, #ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+        background-color: hsl(340, 100%, 75%);
+}
+
+  button.button.blue {
+	border: 1px solid #3c5bf4;
+        background-image: -webkit-linear-gradient(top, #667ef4 0%, #667ef4 50%, #3c5bf4 50%, #3c5bf4 100%);
+	background-image: -moz-linear-gradient(top, #667ef4 0%, #667ef4 50%, #3c5bf4 50%, #3c5bf4 100%);
+    	background-image: -ms-linear-gradient(top, #667ef4 0%, #667ef4 50%, #3c5bf4 50%, #3c5bf4 100%);
+    	background-image: -o-linear-gradient(top, #667ef4 0%, #667ef4 50%, #3c5bf4 50%, #3c5bf4 100%);
+    	background-image: linear-gradient(top, #667ef4 0%, #667ef4 50%, #3c5bf4 50%, #3c5bf4 100%);
+        background-color: hsl(39, 100%, 50%);
+}
+
+/* disabled button styles
+   works with this markup: <button disabled="disabled">Submit</button>
+*******************************************************************************/
+button.button[disabled], button.button[disabled]:hover, button.button[disabled]:active, button.button.disabled, button.button.disabled:hover, button.button.disabled:active {
+  opacity: 0.5;
+  background-image: -webkit-linear-gradient(top,#ff6699 0%, #ff6699 50%, #ff3399 50%, #ff3399 100%);
+  /*background: #999;*/
+  border: 1px solid black;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #aaa;
+  cursor: not-allowed;
+  text-shadow: none; 
+ 
+}
+
+
+/*----------------Button Margin------- */
+button.button {
+  margin-top: 54px;
+  padding: 15px 20px 15px 20px;
+ }
+/* -------------- Fonts -------------- */
+
+.serif {
+        font-family: 'Lobster', serif;
+        font-weight:                    normal;
+}
+
